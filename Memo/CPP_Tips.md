@@ -42,6 +42,39 @@ std::cout << std::fixed << set::setprecision(std::numeric_limits<double>::max_di
 
 ## 計算
 
+### 数値型の範囲
+
+| 型名           | ビット幅 |         下限         |         上限         | 入るオーダー |
+|----------------|:--------:|:--------------------:|:--------------------:|:------------:|
+| char           |     8    |                 -128 |                  127 | 10^1         |
+| unsigned char  |     8    |                    0 |                  255 | 10^1         |
+| short          |    16    |               -32768 |                32767 | 10^3         |
+| unsigned short |    16    |                    0 |                65535 | 10^3         |
+| int            |    32    |          -2147483648 |           2147483647 | 10^9         |
+| unsigned int   |    32    |                    0 |           4294967295 | 10^9         |
+| long           |    64    | -9223372036854775808 |  9223372036854775807 | 10^18        |
+| unsigned long  |    64    |                    0 | 18446744073709551615 | 10^18        |
+| float          |    32    |          1.17549e-38 |          3.40282e+38 | 10^38        |
+| double         |    64    |         2.22507e-308 |         1.79769e+308 | 10^308       |
+| long double    |    128   |         3.3621e-4932 |        1.18973e+4932 | 10^4932      |
+
+### 最大値・最小値の取得
+
+```cpp
+#include<limits>
+std::numeric_limits<char>::min();
+std::numeric_limits<char>::max();
+
+#include <climits>
+CHAR_MIN ...etc
+```
+
+#### ビット数の取得
+
+```cpp
+std::numeric_limits<char>::digits;
+```
+
 ### 切り上げ
 ```cpp
 (a + (b-1))/b;
