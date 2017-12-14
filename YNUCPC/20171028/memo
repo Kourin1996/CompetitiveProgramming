@@ -1,0 +1,20 @@
+https://github.com/morris821028/UVa/blob/master/volume129/12974%20-%20Exquisite%20Strings.cpp
+
+Source
+Regional WarmUp（20151024）
+(Competitive Programming Network - Eleventh Activity - 2015, Premio Fase II México & Centroamérica The ACM-ICPC in ESCOM-IPN 2015)
+UVa 12973
+問題概要
+NN 個の正整数 G1,G2,…,GNG1,G2,…,GN が与えられる．
+11 回の操作では，これらの整数の中から 11 つ選び，11 だけ増やすか，11 だけ減らすことができる．
+ただし，00 以下にしては行けない．
+最終的に，全ての整数が互いに素，つまり，GCD(Gi,Gj)=1,1≤i<j≤NGCD(Gi,Gj)=1,1≤i<j≤N を満たすようにしたい．
+最小の操作回数で達成できる状態を 11 つを求める問題．
+テストケースの数 TT に対する制約はない
+1≤N≤1001≤N≤100
+1≤Gk≤201≤Gk≤20
+解法
+まず，GkGk を 11 にしてしまえば，他のものと互いに素になることは保証される．
+よって，4040 以上に増やす必要はなく，そうするぐらいなら 11 にしてしまえば良い．
+また，Gi<;GjGi<;Gj なら最終状態でも Gi≤GjGi≤Gj であるべき．
+なので，まずは，GiGi をソートして，Gi≤Gi+1Gi≤Gi+1 を常に満たすと仮定しておく．

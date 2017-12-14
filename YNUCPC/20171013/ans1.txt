@@ -1,0 +1,125 @@
+Case 1
+   Query 1: 6
+   Query 2: 11
+   Query 3: 4
+   Query 4: 11
+   Query 5: 11
+   Query 6: 0
+   Query 7: 2
+   Query 8: 6
+   Query 9: 15
+   Query 10: 0
+   Query 11: 6
+Case 2
+   Query 1: 11
+   Query 2: 0
+   Query 3: 3
+   Query 4: 0
+   Query 5: 3
+   Query 6: 6
+   Query 7: 7
+   Query 8: 4
+   Query 9: 7
+   Query 10: 3
+Case 3
+   Query 1: 4
+   Query 2: 4
+   Query 3: 0
+   Query 4: 9
+   Query 5: 12
+Case 4
+   Query 1: 3
+   Query 2: 3
+Case 5
+   Query 1: 812
+   Query 2: 813
+   Query 3: 0
+   Query 4: 84
+   Query 5: 490
+   Query 6: 462
+   Query 7: 7
+   Query 8: 7
+   Query 9: 0
+   Query 10: 112
+   Query 11: 0
+   Query 12: 812
+Case 6
+   Query 1: 462
+   Query 2: 0
+   Query 3: 462
+   Query 4: 0
+   Query 5: 840
+   Query 6: 462
+   Query 7: 714
+   Query 8: 0
+   Query 9: 0
+   Query 10: 714
+Case 7
+   Query 1: 10
+   Query 2: 141
+   Query 3: 331
+   Query 4: 685
+   Query 5: 495
+   Query 6: 238
+Case 8
+   Query 1: 27
+   Query 2: 0
+   Query 3: 10
+   Query 4: 106
+   Query 5: 31
+   Query 6: 37
+   Query 7: 45
+Case 9
+   Query 1: 322
+   Query 2: 5
+   Query 3: 133
+   Query 4: 130
+   Query 5: 512
+   Query 6: 7
+   Query 7: 267
+   Query 8: 210
+   Query 9: 130
+   Query 10: 0
+   Query 11: 7
+   Query 12: 979
+   Query 13: 8
+Case 10
+   Query 1: 120
+   Query 2: 0
+   Query 3: 0
+   Query 4: 0
+   Query 5: 329
+   Query 6: 0
+   Query 7: 0
+   Query 8: 0
+Case 11
+   Query 1: 0
+   Query 2: 0
+   Query 3: 1
+   Query 4: 1
+   Query 5: 2
+   Query 6: 1
+   Query 7: 1
+   Query 8: 0
+   Query 9: 2
+   Query 10: 0
+Case 12
+   Query 1: 0
+Case 13
+   Query 1: 75
+   Query 2: 60
+   Query 3: 84
+   Query 4: 60
+   Query 5: 39
+   Query 6: 1
+   Query 7: 35
+Case 14
+   Query 1: 0
+   Query 2: 0
+   Query 3: 0
+   Query 4: 0
+   Query 5: 0
+   Query 6: 0
+Case 15
+   Query 1: 28
+   Query 2: 44
