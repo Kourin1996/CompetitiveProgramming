@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +34,45 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
-int main() {
-    fcout(10) << 0.1 << std::endl;
+typedef std::pair<int,int> PII;
+
+int N;
+VI A;
+int main(){
+    std::cin >> N;
+    A.resize(N);
+    REP(i, N) {
+        std::cin >> A[i];
+    }
+    SORT(A);
+ 
+    LL max1, max2;
+    int idx;
+    max1 = max2 = 0;
+    idx = -1;
+    RFOR(i, N-1, 1) {
+        if(A[i] == A[i-1]){
+            max1 = A[i];
+            idx = i-2;
+            break;
+        }
+    }
+    RFOR(i, idx, 1) {
+        if(A[i] == A[i-1]){
+            max2 = A[i];
+            break;
+        }
+    }
+    std::cout << max1*max2 << std::endl;
+    return 0;
 }

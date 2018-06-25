@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -49,6 +47,33 @@ typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+std::string s;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    while(std::getline(std::cin, s)) {
+        if(s == ".") break;
+        
+        std::stack<char> stack;
+        bool f = true;
+        for(auto c: s) {
+            if(c == '(' || c == '[') {
+                stack.push(c);
+            } else if(c == ')' || c == ']') {
+                if(stack.empty()) {
+                    f = false;
+                    break;
+                }
+
+                char left = stack.top();
+                stack.pop();
+                if( (left == '(' && c == ')') || (left == '[' && c == ']') ) {
+                    continue;
+                } else {
+                    f = false;
+                    break;
+                }
+            }
+        }
+
+        std::cout << ( (f && stack.empty()) ? "yes" : "no") << std::endl;
+    }
 }

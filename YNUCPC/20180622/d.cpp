@@ -49,6 +49,65 @@ typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef long long Weight;
+const Weight WEIGHT_INF = std::numeric_limits<Weight>::max()/4;
+
+struct Edge {
+    int src, dst;
+    Weight weight;
+};
+bool operator<(const Edge& a, const Edge& b) {
+    return (a.weight < b.weight);
+};
+bool operator>(const Edge& a, const Edge& b) {
+    return (a.weight > b.weight);
+};
+typedef std::vector<Edge> Edges;
+typedef std::vector<Edges> Graph;
+
+std::vector<std::vector<Weight>> g;
+std::vector<std::vector<int>> trace;
+void warshallFloyd() {
+    int n = g.size();
+    trace.resize(n, std::vector<int>(n, -1));
+    REP(k, n) REP(i, n) REP(j, n) {
+        if(g[i][k] == WEIGHT_INF || g[k][j] == WEIGHT_INF){
+            continue;
+        }
+        g[i][j] = std::min(g[i][j], g[i][k] + g[k][j]);
+    }
+}
+
+int N, M, R;
+VI r;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> N >> M >> R;
+    r.resize(R);
+    REP(i, R) {
+        std::cin >> r[i];
+        --r[i];
+    }
+    g.resize(N, std::vector<Weight>(N, WEIGHT_INF));
+
+    int a, b, c;
+    REP(i, M) {
+        std::cin >> a >> b >> c;
+        --a, --b;
+        g[a][b] = c;
+        g[b][a] = c;
+    }
+
+    warshallFloyd();
+
+    int ans = std::numeric_limits<int>::max();
+    SORT(r);
+    do {
+        int sum = 0;
+        for(int i=0; i<R-1; ++i) {
+            sum += g[r[i]][r[i+1]];
+        }
+        ans = std::min(ans, sum);
+    }while(std::next_permutation(ALL(r)));
+
+    std::cout << ans << std::endl;
 }

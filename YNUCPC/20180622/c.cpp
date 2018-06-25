@@ -49,6 +49,24 @@ typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+int N;
+std::map<int, bool> map;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> N;
+
+    int A;
+    REP(i, N) {
+        std::cin >> A;
+        if(map.count(A) == 0) {
+            map.insert(mp(A, true));
+        } else {
+            map[A] = !map[A];
+        }
+    }
+
+    int cnt = 0;
+    for(auto x: map) {
+        cnt += (x.snd ? 1 : 0);
+    }
+    std::cout << cnt << std::endl;
 }

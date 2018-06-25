@@ -49,6 +49,15 @@ typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+int N;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> N;
+
+    int l, r;
+    int sum = 0;
+    REP(i, N) {
+        std::cin >> l >> r;
+        sum += (r-l) + 1;
+    }
+    std::cout << sum << std::endl;
 }

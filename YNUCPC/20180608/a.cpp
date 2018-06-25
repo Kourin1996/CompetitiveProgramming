@@ -4,7 +4,7 @@
 #define fst first
 #define snd second
 #define pb push_back
-#define mp std::make_pair
+#define mp make_pair
 
 // Loop
 #define FOR(i,a,b) for(auto i=(a);i<(b);++i)
@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +34,24 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef std::pair<int,int> PII;
+
+int x, a, b;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> x >> a >> b;
+    if(std::abs(x-a) < std::abs(x-b)) {
+        std::cout << "A" << std::endl;
+    } else {
+        std::cout << "B" << std::endl;
+    }
 }

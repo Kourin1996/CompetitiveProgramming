@@ -4,7 +4,6 @@
 #define fst first
 #define snd second
 #define pb push_back
-#define mp std::make_pair
 
 // Loop
 #define FOR(i,a,b) for(auto i=(a);i<(b);++i)
@@ -24,8 +23,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +33,38 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef std::pair<int,int> PII;
+
+int N, t;
+std::vector< PII > h;
+
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> N >> t;
+    h.resize(N);
+    REP(i, N) {
+        std::cin >> h[i].fst >> h[i].snd;
+    }
+
+    SORT(h);
+
+    long double maxRad = 0.0;
+    int prevHight = 0;
+    for(auto it: h) {
+        if(it.snd <= prevHight) continue;
+        long double rad = std::atan2(it.snd, it.fst);
+        maxRad = std::max(maxRad, rad);
+        prevHight = it.snd;
+    }
+    
+    std::cout << std::fixed << std::setprecision(5) << std::tan(maxRad) * t << std::endl;
 }

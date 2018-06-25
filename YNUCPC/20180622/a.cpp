@@ -49,6 +49,12 @@ typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+std::string S;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> S;
+    if(S[0] == '9' || S[1] == '9') {
+        std::cout << "Yes" << std::endl;
+    } else {
+        std::cout << "No" << std::endl;
+    }
 }

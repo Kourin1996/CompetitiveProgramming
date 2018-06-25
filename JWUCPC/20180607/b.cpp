@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +34,38 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef std::pair<int,int> PII;
+typedef std::vector<PII> VPII;
+
+int n;
+VPII v;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    int h, m, s;
+    while(std::cin >> n, n != 0) {
+        v.clear();
+        REP(i, n) {
+            scanf("%d:%d:%d", &h, &m, &s);
+            v.pb(mp(h*3600+m*60+s, 1));
+            scanf("%d:%d:%d", &h, &m, &s);
+            v.pb(mp(h*3600+m*60+s, -1));
+        }
+        SORT(v);
+
+        int res = 0, ans = 0;
+        for(auto t: v) {
+            res += t.snd;
+            ans = std::max(ans, res);
+        }
+        std::cout << ans << std::endl;
+    }
 }

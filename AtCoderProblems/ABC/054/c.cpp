@@ -4,7 +4,6 @@
 #define fst first
 #define snd second
 #define pb push_back
-#define mp std::make_pair
 
 // Loop
 #define FOR(i,a,b) for(auto i=(a);i<(b);++i)
@@ -24,8 +23,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +33,57 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef std::pair<int,int> PII;
+
+int N, M;
+VI2 path;
+
+int cnt;
+std::bitset<8> visited;
+std::bitset<8> mask;
+
+void dfs(int i) {
+    if(visited[i]) {
+        return;
+    }
+
+    visited.set(i);
+    if( (visited & mask) == mask) {
+        ++cnt;
+    } else {
+        for(auto next: path[i]) {
+            dfs(next);
+        }
+    }
+    visited.reset(i);
+    
+    return;
+}
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> N >> M;
+    path.resize(N);
+    REP(i, M) {
+        int a, b;
+        std::cin >> a >> b;
+        --a, --b;
+        path[a].pb(b);
+        path[b].pb(a);
+    }
+
+    cnt = 0;
+    visited = std::bitset<8>(0);
+    mask    = std::bitset<8>(std::pow(2, N) - 1);
+    dfs(0);
+
+    std::cout << cnt << std::endl;
 }

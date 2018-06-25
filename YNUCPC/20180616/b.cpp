@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -49,6 +47,34 @@ typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
-int main() {
-    fcout(10) << 0.1 << std::endl;
+int N, M;
+VI2 b(21, VI(100001, 0));
+
+VI memo(1 << 20, -1);
+int dp(int idx, int bit){
+    if(idx == N) return 0;
+    if(memo[bit] != -1) return memo[bit];
+
+    int ret = std::numeric_limits<int>::max();
+    FOR(i, 1, M+1) {
+        if( (bit&1 << (i-1)) == 0 ){
+            int num = N - b[i][N];
+            int oth = b[i][idx+num] - b[i][idx];
+            ret = std::min(ret, dp(idx + num, bit|1<<(i-1)) + oth);
+        }
+    }
+    return (memo[bit] = ret);
+}
+
+int main(){
+    std::cin >> N >> M;
+    FOR(i, 1, N+1) {
+        int a;
+        std::cin >> a;
+        FOR(j, 1, M+1) {
+            if(j != a) b[j][i]++;
+            b[j][i] += b[j][i-1];
+        }
+    }
+    std::cout << dp(0, 0) << std::endl;
 }

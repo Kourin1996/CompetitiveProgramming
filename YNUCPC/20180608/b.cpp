@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +34,40 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef std::pair<int,int> PII;
+
+std::string S;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> S;
+
+    std::map<char,int> map;
+    for(auto c: S) {
+        if(map.count(c) == 0) {
+            map.insert(mp(c, 1));
+        } else {
+            map[c] += 1;
+        }
+    }
+
+    bool flag = false;
+    for(char c='a'; c<='z'; ++c) {
+        if(map.count(c) == 0) {
+            flag = true;
+            std::cout << c << std::endl;
+            break;
+        }
+    }
+    if(!flag) {
+        std::cout << "None" << std::endl;
+    }
 }

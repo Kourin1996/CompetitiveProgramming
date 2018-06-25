@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +34,45 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef std::pair<int,int> PII;
+
+int N, L;
+VI A;
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> N >> L;
+    A.resize(N);
+
+    int lp = -1;
+    REP(i, N) {
+        std::cin >> A[i];
+        if(i > 0 && A[i-1] + A[i] >= L) {
+            lp = i;
+        }
+    }
+    if(lp == -1) {
+        std::cout << "Impossible" << std::endl;
+        return 0;
+    }
+    std::cout << "Possible" << std::endl;
+
+    int i = 1, cnt = 0;
+    while(i < lp) {
+        std::cout << (i++) << std::endl;;
+    }
+    i = N-1;
+    while(i > lp) {
+        std::cout << (i--) << std::endl;
+    }
+    std::cout << lp << std::endl;
+    return 0;
 }

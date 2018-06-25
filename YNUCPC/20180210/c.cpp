@@ -4,7 +4,6 @@
 #define fst first
 #define snd second
 #define pb push_back
-#define mp std::make_pair
 
 // Loop
 #define FOR(i,a,b) for(auto i=(a);i<(b);++i)
@@ -24,8 +23,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -36,19 +33,24 @@ bool debug = true;
 
 //alias
 typedef long long LL;
-typedef std::pair<int,int> PII;
-
 typedef std::vector<char> VC;
 typedef std::vector<int>  VI;
 typedef std::vector<long> VL;
 typedef std::vector<long long> VLL;
-typedef std::vector<PII> VPII;
 
 typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
 
+typedef std::pair<int,int> PII;
+typedef std::pair<int, PII> PIII;
+
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    PIII p1, p2;
+    std::cin >> p1.fst >> p1.snd.fst >> p1.snd.snd >> p2.fst >> p2.snd.fst >> p2.snd.snd;
+    if(p1 < p2) std::swap(p1, p2);
+
+    int ans = p1.fst - p2.fst + (int)(p1.snd > p2.snd);
+    std::cout << ans << std::endl;
 }

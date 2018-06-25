@@ -24,8 +24,6 @@
 #define UNIQUE(a) std::sort((a).begin(), a.end()), a.erase(std::unique((a).begin(), a.end()), a.end());
 #define SUM(a) std::accumulate((a).begin(), (a).end(), 0);
 
-#define fcout(n) std::cout << std::fixed << std::setprecision((n))
-
 //Setting
 #define OPT std::cin.tie(0);std::ios::sync_with_stdio(false);
 
@@ -48,7 +46,21 @@ typedef std::vector< VC > VC2;
 typedef std::vector< VI > VI2;
 typedef std::vector< VL > VL2;
 typedef std::vector< VLL > VLL2;
-
+int N;
+VI b(1e5+3, 0);
 int main() {
-    fcout(10) << 0.1 << std::endl;
+    std::cin >> N;
+    int a;
+    REP(i, N) {
+        std::cin >> a;
+        ++b[a];
+        ++b[a+1];
+        ++b[a+2];
+    }
+
+    int ans = 0;
+    REP(i, 1e5+2) {
+        ans = std::max(ans, b[i]);
+    }
+    std::cout << ans << std::endl;
 }

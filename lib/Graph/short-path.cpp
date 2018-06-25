@@ -1,3 +1,5 @@
+
+
 //Common
 typedef long long Weight;
 const Weight WEIGHT_INF = std::numeric_limits<Weight>::max()/4;
